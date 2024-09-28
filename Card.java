@@ -1,6 +1,7 @@
 public class Card {
     private int faceValue; // the numerical value
     private String  suit; // the type of the card
+
     public Card(int faceValue, String suit){
         setFaceValue(faceValue);
         setSuit(suit);
@@ -18,6 +19,15 @@ public class Card {
         return suit;
     }   
     public String toString(){
-        return getSuit() + getFaceValue();
+        if(getFaceValue() == 1){
+            return getSuit() + "-Ace";
+        }else if(getFaceValue() == 11){
+            return getSuit() + "-Jack";
+        }else if(getFaceValue() == 12){
+            return getSuit() + "-Queen";
+        }else if(getFaceValue() == 13){
+            return getSuit() + "-King";
+        }
+        return getSuit() + "-" +getFaceValue();
     } 
 }
