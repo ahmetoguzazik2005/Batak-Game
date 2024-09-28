@@ -3,11 +3,16 @@ import java.util.Random;
 
 
 public class Cards {
-    private ArrayList<Card> deck;// each players cards
+    Boolean gameDeckControl = false;
+    private ArrayList<Card> playerDeck;// each players cards
+    private ArrayList<Card> gameDeck;// each players cards
 
 
     public Cards(){
-        deck = new ArrayList<>();
+        if(gameDeckControl == false){
+            gameDeck = new ArrayList<>();
+        }
+        playerDeck = new ArrayList<>();
     }
     public void getTopCard(){
 
@@ -22,9 +27,10 @@ public class Cards {
         for (String suit : suits) {
             for (int i = 1; i <= 13; i++) {
                 Card card = new Card(i, suit);
-                deck.add(card);
+                gameDeck.add(card);
             }
         }
+        gameDeckControl = true;
 
     }
     public void shuffle(){
