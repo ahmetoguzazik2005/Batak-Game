@@ -11,10 +11,8 @@ public class CleverGame{
     private Player player3; 
     private Player player4;
 
-    private ScoreCards scorecard1;
-    private ScoreCards scorecard2;
-    private ScoreCards scorecard3;
-    private ScoreCards scorecard4;
+    private ScoreCards scorecard;
+
 
     CleverGame(Player player1, Player player2, Player player3, Player player4){
         this.player1 = player1;
@@ -119,37 +117,10 @@ public class CleverGame{
         this.cards4 = cards4;
     }
 
-    public ScoreCards getScorecard1() {
-        return scorecard1;
+    public ScoreCards getScorecard() {
+        return scorecard;
     }
 
-    public void setScorecard1(ScoreCards scorecard1) {
-        this.scorecard1 = scorecard1;
-    }
-
-    public ScoreCards getScorecard2() {
-        return scorecard2;
-    }
-
-    public void setScorecard2(ScoreCards scorecard2) {
-        this.scorecard2 = scorecard2;
-    }
-
-    public ScoreCards getScorecard3() {
-        return scorecard3;
-    }
-
-    public void setScorecard3(ScoreCards scorecard3) {
-        this.scorecard3 = scorecard3;
-    }
-
-    public ScoreCards getScorecard4() {
-        return scorecard4;
-    }
-
-    public void setScorecard4(ScoreCards scorecard4) {
-        this.scorecard4 = scorecard4;
-    }
 
 
 
