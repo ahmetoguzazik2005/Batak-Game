@@ -1,6 +1,7 @@
 public class Player {
     private String name;// players name
     private Cards myCards;// players's card
+
     public Player(String name, Cards myCards){
         setName(name);
         setCards(myCards);
@@ -14,9 +15,7 @@ public class Player {
     public String getName(){
         return name;
     }
-    // public void addCard(){
-
-    // }
+    
     // public Card playCard(){
         
     // }
