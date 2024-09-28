@@ -33,6 +33,7 @@ public class Cards {
         Random random = new Random();
         for ( int i = 1; i <= 52; i++ ){
         int randomNumber = random.nextInt(gameDeck.size()) + 1;
+        for()
 
 
 
