@@ -2,15 +2,11 @@ import java.util.ArrayList;
 
 public class Cards {
     Boolean gameDeckControl = false;
-    private ArrayList<Card> playerDeck;// each players cards
     private ArrayList<Card> gameDeck;// each players cards
 
 
     public Cards(){
-        if(gameDeckControl == false){
-            gameDeck = new ArrayList<>();
-        }
-        playerDeck = new ArrayList<>();
+        gameDeck = new ArrayList<>();
     }
     public void getTopCard(){
 
