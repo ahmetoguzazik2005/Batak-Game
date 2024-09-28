@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ScoreCards {
     private int[] ScoreCards;
 
-    ScoreCards(int noOfScores){
+    ScoreCards(){
         ScoreCards = new int[4];
         for ( int i = 0; i < ScoreCards.length; i++ ){
             this.ScoreCards[i] = 0;

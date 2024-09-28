@@ -2,11 +2,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Cards {
-    Boolean gameDeckControl = false;
-    private ArrayList<Card> gameDeck;// each players cards
+    private ArrayList<Card> gameDeck;// total cards
+    private ArrayList<Card> shuffledGameDeck; 
+    private ArrayList <Card> playerCard1;
+    private ArrayList <Card> playerCard2;
+    private ArrayList <Card> playerCard3;
+    private ArrayList <Card> playerCard4;
 
     public Cards(){
-        gameDeck = new ArrayList<>();
+        this.gameDeck = new ArrayList<>();
+        this.shuffledGameDeck = new ArrayList<>();
+        createFullPackOfCards();
+        shuffle();
+
     }
     public void getTopCard(){
 
@@ -24,16 +32,47 @@ public class Cards {
                 gameDeck.add(card);
             }
         }
-        gameDeckControl = true;
 
     }
     public void shuffle(){
         Random random = new Random();
+        this.playerCard1 = new ArrayList<>();
+        this.playerCard2 = new ArrayList<>();
+        this.playerCard3 = new ArrayList<>();
+        this.playerCard4 = new ArrayList<>();
         for ( int i = 1; i <= 52; i++ ){
-        int randomNumber = random.nextInt(gameDeck.size()) + 1;
-            if(true){
-                ff
-            }
+        int randomNumber = random.nextInt(53 - i);
+
+        shuffledGameDeck.add(gameDeck.get(randomNumber));
+        
+        if ( i % 4 == 0 ){
+            playerCard4.add(gameDeck.get(randomNumber));
+        }else if ( i % 4 == 1){
+            playerCard1.add(gameDeck.get(randomNumber));
+        }else if ( i % 4 == 2){
+            playerCard2.add(gameDeck.get(randomNumber));
+        }else if ( i % 4 == 3){
+            playerCard3.add(gameDeck.get(randomNumber));
         }
+
+
+        gameDeck.remove(randomNumber);
+
+        }
+    }
+    public ArrayList<Card> getPlayerCard1() {
+        return playerCard1;
+    }
+
+    public ArrayList<Card> getPlayerCard2() {
+        return playerCard2;
+    }
+
+    public ArrayList<Card> getPlayerCard3() {
+        return playerCard3;
+    }
+
+    public ArrayList<Card> getPlayerCard4() {
+        return playerCard4;
     }
 }

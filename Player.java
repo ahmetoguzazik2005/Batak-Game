@@ -1,14 +1,16 @@
+import java.util.ArrayList;
 public class Player {
     private String name;// players name
-    private Cards myCards;// players's card
+    private ArrayList<Card> myCards;// players's card
 
-    public Player(String name){
+    public Player(String name, ArrayList<Card> myCards){
         setName(name);
+        setPlayerCards(myCards);
     }
     public void setName(String name){
         this.name = name;
     }
-    public void setCards(Cards myCards){
+    public void setPlayerCards(ArrayList<Card> myCards){
         this.myCards = myCards;
     }
     public String getName(){
