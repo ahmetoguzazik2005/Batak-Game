@@ -23,7 +23,7 @@ public class CleverGame{
         this.player4 = player4;
 
     }
-    public boolean playTurn(Player player, Card card){
+   /*  public boolean playTurn(Player player, Card card){
 
 
     }
@@ -47,7 +47,7 @@ public class CleverGame{
     }
     public Player getWinner(){
 
-    }
+    }*/
     public Player getPlayer1() {
         return player1;
     }
