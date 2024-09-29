@@ -49,8 +49,6 @@ public class Cards {
         }else if ( i % 4 == 3){
             playerCard3.add(gameDeck.get(randomNumber));
         }
-
-
         gameDeck.remove(randomNumber);
 
         }
