@@ -16,12 +16,7 @@ public class Cards {
         shuffle();
 
     }
-    public void getTopCard(){
 
-    }
-    public void addTopCard(){
-
-    }
     public void createFullPackOfCards(){
         String[] suits = {"Heart", "Spade", "Club", "Diamond"};
 

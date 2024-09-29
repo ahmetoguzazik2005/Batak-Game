@@ -17,6 +17,12 @@ public class mainn {
             p3.playCard(game, "Spade");
             p4.playCard(game, "Spade");
         }
+        cG1.bet();
+        cG1.getLastBetter();
+        cG1.getBiggestBet();
+
+        
+        //System.out.println(c1.getPlayerCard1());
         
         /*for ( int i = 0; i < c1.getPlayerCard1().size(); i++ ){
             System.out.println(c1.getPlayerCard1().get(i));
