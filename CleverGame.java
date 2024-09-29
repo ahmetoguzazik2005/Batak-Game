@@ -72,6 +72,8 @@ public class CleverGame{
                 order.add(player1);
                 order.add(player2);
                 return order;
+                 
+                
             }else{
                 order.add(player4);
                 order.add(player1);
