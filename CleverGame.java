@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class CleverGame{
-    private Cards totalCards;
     private Player player1;
     private Player player2;
     private Player player3; 
@@ -20,6 +19,7 @@ public class CleverGame{
         setPlayer2(player2);
         setPlayer3(player3);
         setPlayer4(player4);
+        scorecard = new ScoreCards();
     }
     // public boolean playTurn(Player player, Card card){
 
@@ -105,9 +105,7 @@ public class CleverGame{
                 order.add(player3);
                 return order;
             }   
-
         }
-
     }
 
     public Player getPlayer1() {
@@ -141,14 +139,7 @@ public class CleverGame{
     public void setPlayer4(Player player4) {
         this.player4 = player4;
     }
-    public Cards getTotalCards() {
-        return totalCards;
-    }
-
-    public void setTotalCards(Cards totalCards) {
-        this.totalCards = totalCards;
-    }
-
+    
     public ScoreCards getScorecard() {
         return scorecard;
     }
