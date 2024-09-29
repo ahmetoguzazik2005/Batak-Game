@@ -50,53 +50,61 @@ public class CleverGame{
      * every turn it will change the list according to winner 
      * at the first turn it will create according to spade two
      */
-    public void setPlayTurn(){
+    public ArrayList<Player> setPlayTurn(){
+        ArrayList<Player> order = new ArrayList<>();
         if(playTurn == 1){
-            if(isSpadeTwo(player1.getPlayerCards())){
-                playerTurns.add(player1);
-                playerTurns.add(player2);
-                playerTurns.add(player3);
-                playerTurns.add(player4);
-            }else if(isSpadeTwo(player2.getPlayerCards())){
-                playerTurns.add(player2);
-                playerTurns.add(player3);
-                playerTurns.add(player4);
-                playerTurns.add(player1);
-            }else if(isSpadeTwo(player3.getPlayerCards())){
-                playerTurns.add(player3);
-                playerTurns.add(player4);
-                playerTurns.add(player1);
-                playerTurns.add(player2);
-            }else{
-                playerTurns.add(player4);
-                playerTurns.add(player1);
-                playerTurns.add(player2);
-                playerTurns.add(player3);
-            }
             playTurn++;//prevent to happen again
+            if(isSpadeTwo(player1.getPlayerCards())){
+                order.add(player1);
+                order.add(player2);
+                order.add(player3);
+                order.add(player4);
+                return order;
+            }else if(isSpadeTwo(player2.getPlayerCards())){
+                order.add(player2);
+                order.add(player3);
+                order.add(player4);
+                order.add(player1);
+                return order;
+            }else if(isSpadeTwo(player3.getPlayerCards())){
+                order.add(player3);
+                order.add(player4);
+                order.add(player1);
+                order.add(player2);
+                return order;
+            }else{
+                order.add(player4);
+                order.add(player1);
+                order.add(player2);
+                order.add(player3);
+                return order;
+            }
         }else{
             if(getWinner() == player1){
-                playerTurns.add(player1);
-                playerTurns.add(player2);
-                playerTurns.add(player3);
-                playerTurns.add(player4);
-                
+                order.add(player1);
+                order.add(player2);
+                order.add(player3);
+                order.add(player4);
+                return order;
             }else if(getWinner() == player2){
-                playerTurns.add(player2);
-                playerTurns.add(player3);
-                playerTurns.add(player4);
-                playerTurns.add(player1);
+                order.add(player2);
+                order.add(player3);
+                order.add(player4);
+                order.add(player1);
+                return order;
             }else if(getWinner() == player3){
-                playerTurns.add(player3);
-                playerTurns.add(player4);
-                playerTurns.add(player1);
-                playerTurns.add(player2);
+                order.add(player3);
+                order.add(player4);
+                order.add(player1);
+                order.add(player2);
+                return order;
             }else{
-                playerTurns.add(player4);
-                playerTurns.add(player1);
-                playerTurns.add(player2);
-                playerTurns.add(player3);
-            }
+                order.add(player4);
+                order.add(player1);
+                order.add(player2);
+                order.add(player3);
+                return order;
+            }   
 
         }
 
