@@ -7,6 +7,7 @@ public class Player {
 
     public Player(String name, ArrayList<Card> myCards){
         setName(name);
+        setPlayerCards(myCards);
     }
     public void setName(String name){
         this.name = name;
@@ -26,7 +27,7 @@ public class Player {
      * allow user to play its card
      * @return the card which is played
      */
-    public Card playCard(){
+    /*public Card playCard(){
         Scanner scanner = new Scanner(System.in);
 
         
@@ -36,6 +37,9 @@ public class Player {
      */
     public void playableCards(){
 
+    }
+    public String toString(){
+        return getName();
     }
     
     
