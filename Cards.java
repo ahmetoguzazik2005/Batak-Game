@@ -27,7 +27,7 @@ public class Cards {
 
         // Adding all cards for each suit (1 to 13)
         for (String suit : suits) {
-            for (int i = 1; i <= 13; i++) {
+            for (int i = 2; i <= 14; i++) {
                 Card card = new Card(i, suit);
                 gameDeck.add(card);
             }

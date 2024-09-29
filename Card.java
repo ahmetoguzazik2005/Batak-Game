@@ -19,7 +19,7 @@ public class Card {
         return suit;
     }   
     public String toString(){
-        if(getFaceValue() == 1){
+        if(getFaceValue() == 14){
             return getSuit() + "-Ace";
         }else if(getFaceValue() == 11){
             return getSuit() + "-Jack";

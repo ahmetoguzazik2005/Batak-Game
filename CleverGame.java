@@ -5,6 +5,7 @@ public class CleverGame{
     private Player player2;
     private Player player3; 
     private Player player4;
+    private Player playerWinner;
     private ArrayList<Player> playerTurns = new ArrayList<>();// to determine who to play
     private ArrayList<Card> playedCards = new ArrayList<>();// played cards at the table
     // the reason why i chose is in round one lists are created according to cards
@@ -13,7 +14,6 @@ public class CleverGame{
 
     private ScoreCards scorecard;
     
-
     CleverGame(Player player1, Player player2, Player player3, Player player4){
         setPlayer1(player1);
         setPlayer2(player2);
@@ -44,6 +44,7 @@ public class CleverGame{
 
     // }
     public Player getWinner(){
+    //update s1 update;
 
     }
     /*
@@ -72,8 +73,6 @@ public class CleverGame{
                 order.add(player1);
                 order.add(player2);
                 return order;
-                 
-                
             }else{
                 order.add(player4);
                 order.add(player1);
@@ -82,13 +81,13 @@ public class CleverGame{
                 return order;
             }
         }else{
-            if(getWinner() == player1){
+            if(playerWinner == player1){
                 order.add(player1);
                 order.add(player2);
                 order.add(player3);
                 order.add(player4);
                 return order;
-            }else if(getWinner() == player2){
+            }else if(playerWinner == player2){
                 order.add(player2);
                 order.add(player3);
                 order.add(player4);
