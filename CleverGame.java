@@ -274,10 +274,7 @@ public class CleverGame{
         }
     }
 
-<<<<<<< Updated upstream
     
-=======
->>>>>>> Stashed changes
     public boolean betQuestions(Player who, int playerNo){
         System.out.println("------------------------------------------------------------------");
         System.out.println("Minimal bet is: " + (minimalBet) );
