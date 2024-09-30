@@ -5,8 +5,8 @@ public class Player {
     private String name;// players name  
     private ArrayList<Card> myCards;// players's card
     private ArrayList<Card> myPlayableCards;
-    private static boolean pastSpecial = false;//same for everyone so it must be static
-    
+    private static boolean first = true;
+
     public Player(String name, ArrayList<Card> myCards){
         setName(name);
         setPlayerCards(myCards);
@@ -38,6 +38,7 @@ public class Player {
         ArrayList<Card> toPlay = playableCards(playedCards, specialCard);
         show(toPlay, playedCards);
         Scanner input = new Scanner(System.in);
+        System.out.print("Choice: ");
         int whichToPlay = input.nextInt();
         Card cardPlayed = toPlay.get(whichToPlay - 1);
         playedCards.add(cardPlayed);
@@ -127,15 +128,20 @@ public class Player {
     
     public void show(ArrayList<Card> toPlay, ArrayList<Card> played){
         System.out.println("----------------------------------------------");
-        System.out.println("Cards played before: ");
 
-        for(int i = 0; i < played.size(); i++){
-            System.out.print((i + 1) + ") " + played.get(i).toString() + " ");
+        if ( !first ){
+            System.out.print("Cards played before: ");
+            for(int i = 0; i < played.size(); i++){
+                System.out.print((i + 1) + ") " + played.get(i).toString() + "| ");
+            }
         }
+        first = false;
+        System.out.println();
+        System.out.print("Cards you can play: ");
        
         System.out.println();
         for(int i = 0; i < toPlay.size(); i++){
-            System.out.print((i + 1) + ") " + toPlay.get(i).toString() + " ");
+            System.out.print((i + 1) + ") " + toPlay.get(i).toString() + "| ");
         }
 
         System.out.println();

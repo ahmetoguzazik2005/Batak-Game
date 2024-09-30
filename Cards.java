@@ -18,7 +18,7 @@ public class Cards {
     }
 
     public void createFullPackOfCards(){
-        String[] suits = {"Heart", "Spade", "Club", "Diamond"};
+        String[] suits = {"heart", "spade", "club", "diamond"};
 
         // Adding all cards for each suit (1 to 13)
         for (String suit : suits) {

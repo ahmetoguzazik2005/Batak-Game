@@ -9,7 +9,9 @@ public class ScoreCards {
             this.ScoreCards[i] = 0;
         }
     }
-    
+    //public int getGameWinner(){
+
+    //}
     public int getScore(int scoreNo){
         int score = ScoreCards[scoreNo];
         return score;
