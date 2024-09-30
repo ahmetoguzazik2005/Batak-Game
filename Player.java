@@ -85,6 +85,10 @@ public class Player {
             System.out.print((i + 1) + ") " + myPlayableCards.get(i).toString() + " ");
         }
     }
+
+    public String toString(){
+        return getName();
+    }
     
     
 
