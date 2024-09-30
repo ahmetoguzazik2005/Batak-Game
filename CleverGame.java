@@ -275,7 +275,7 @@ public class CleverGame{
                 bet = input.nextInt();
                 input.nextLine();
                 while(true){
-                    if( bet >= minimalBet ){
+                    if( bet >= minimalBet && bet <= 13 ){
                         minimalBet = bet + 1;
                         biggestBet = bet;
                         lastBetter = who;
