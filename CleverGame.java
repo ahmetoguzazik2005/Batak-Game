@@ -90,13 +90,13 @@ public class CleverGame{
                 return order;
             }
         }else{
-            if(playerWinner == player1){
+            if(getWinner() == player1){
                 order.add(player1);
                 order.add(player2);
                 order.add(player3);
                 order.add(player4);
                 return order;
-            }else if(playerWinner == player2){
+            }else if(getWinner() == player2){
                 order.add(player2);
                 order.add(player3);
                 order.add(player4);

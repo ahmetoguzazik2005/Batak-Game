@@ -11,15 +11,16 @@ public class mainn {
         CleverGame cG1 = new CleverGame(p1, p2, p3, p4);
         System.out.println(c1.getPlayerCard1());
         ArrayList<Card> game = new ArrayList<>(); 
+        cG1.bet();
+        cG1.getLastBetter();
+        cG1.getBiggestBet();
+
         for(int i = 0; i < 4; i++){
             p1.playCard(game, "Spade");
             p2.playCard(game, "Spade");
             p3.playCard(game, "Spade");
             p4.playCard(game, "Spade");
         }
-        cG1.bet();
-        cG1.getLastBetter();
-        cG1.getBiggestBet();
 
         
         //System.out.println(c1.getPlayerCard1());
