@@ -53,7 +53,7 @@ public class Player {
             String suit = playedCards.getFirst().getSuit();
             int value = playedCards.getFirst().getFaceValue();//initial num
 
-            if(playedCards.size() > 0){
+            
                 // check if there any special, you can play any number in the suit form 
                 boolean isThereSpecial = false;//prevents mistakes in only specialCard turns
                 if(suit != specialCard){
@@ -68,7 +68,7 @@ public class Player {
                         value = playedCards.get(i).getFaceValue();
                     }
                 }
-            }
+            
             //is there any playable same suit with the higher number
             for(int i = 0; i < myCards.size(); i++){
                 if(myCards.get(i).getSuit() == suit && myCards.get(i).getFaceValue() > value){
@@ -89,10 +89,8 @@ public class Player {
                 value = 0;
                 //takes the most pointed specialCard
                 for(int j = 0; j < playedCards.size(); j++){
-                    if(playedCards.get(j).getSuit() == specialCard){
-                        if(playedCards.get(j).getFaceValue() > value){
-                            value = playedCards.get(j).getFaceValue() ;
-                        }
+                    if((playedCards.get(j).getSuit() == specialCard) && playedCards.get(j).getFaceValue() > value){
+                        value = playedCards.get(j).getFaceValue() ;
                     }
                 }
                 for(int i = 0; i < myCards.size(); i++){
