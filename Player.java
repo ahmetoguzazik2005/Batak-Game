@@ -31,7 +31,7 @@ public class Player {
     public Card playCard(ArrayList<Card> playedCards, String specialCard){
         System.out.println("which card do you want to play");
         ArrayList<Card> toPlay = playableCards(playedCards, specialCard);
-        show(toPlay);
+        show(toPlay, playedCards);
         Scanner input = new Scanner(System.in);
         int whichToPlay = input.nextInt();
         Card cardPlayed = toPlay.get(whichToPlay - 1);
@@ -108,16 +108,21 @@ public class Player {
             return myPlayableCards;
         }   
     }
-    public void show(ArrayList<Card> toPlay){
-        for(int i = 0; i <toPlay.size(); i++){
+    public void show(ArrayList<Card> toPlay, ArrayList<Card> played){
+        System.out.println("----------------------------------------------");
+        System.out.println("Cards played before: ");
+        for(int i = 0; i < played.size(); i++){
+            System.out.print((i + 1) + ") " + played.get(i).toString() + " ");
+        }
+       
+        for(int i = 0; i < toPlay.size(); i++){
             System.out.print((i + 1) + ") " + toPlay.get(i).toString() + " ");
         }
+        System.out.println();
+        System.out.println("----------------------------------------------");
     }
 
     public String toString(){
         return getName();
     }
-    
-    
-
 }
