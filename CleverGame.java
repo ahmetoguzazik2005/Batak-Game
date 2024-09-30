@@ -12,9 +12,11 @@ public class CleverGame{
     private Player lastBetter;
     private int minimalBet = 5;
     private int biggestBet;
+
     Scanner input;
     String choice;
     int spadeTwoNo;
+
     private ArrayList<Player> playerTurns = new ArrayList<>();// to determine who to play
     private ArrayList<Card> playedCards = new ArrayList<>();// played cards at the table
     // the reason why i chose is in round one lists are created according to cards
@@ -58,6 +60,7 @@ public class CleverGame{
         return player1;// for just now, debugging
 
     }
+
     /*
      * every turn it will change the list according to winner 
      * at the first turn it will create according to spade two
@@ -119,6 +122,7 @@ public class CleverGame{
             }   
         }
     }
+
     public void run(){
         for ( int spin = 1; spin <= 13; spin++ ){
 
@@ -259,15 +263,17 @@ public class CleverGame{
                 return;
             } 
         }
-
     }
+
     public boolean betQuestions(Player who){
         System.out.println("------------------------------------------------------------------");
         System.out.println("Minimal bet is: " + (minimalBet) );
         System.out.println( who.getName() +", do you want to bet?");
         System.out.println("yes/no");
+
         choice = input.nextLine();
         choice = choice.toLowerCase();
+        
         int bet;
         while(true){
             if(choice.equals("yes")){
@@ -292,29 +298,24 @@ public class CleverGame{
 
                         }else if(choice3.equals("no")){
                             return false;
-
                         }
                     }
-
                 }
 
 
             }else if(choice.equals("no")){
                 return false;
-
-    
             }else{System.out.println("Invalid input");
                 System.out.println("yes/no");
                 choice = input.nextLine();
                 choice = choice.toLowerCase();
-    
             }
         }
-
     }
-        public Player getLastBetter() {
+    public Player getLastBetter() {
         return lastBetter;
     }
+
     public int getBiggestBet() {
         return biggestBet;
     }

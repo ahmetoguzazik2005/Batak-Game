@@ -27,14 +27,15 @@ public class Cards {
                 gameDeck.add(card);
             }
         }
-
     }
+
     public void shuffle(){
         Random random = new Random();
         this.playerCard1 = new ArrayList<>();
         this.playerCard2 = new ArrayList<>();
         this.playerCard3 = new ArrayList<>();
         this.playerCard4 = new ArrayList<>();
+
         for ( int i = 1; i <= 52; i++ ){
         int randomNumber = random.nextInt(53 - i);
 
@@ -53,6 +54,7 @@ public class Cards {
 
         }
     }
+    
     public ArrayList<Card> getPlayerCard1() {
         return playerCard1;
     }

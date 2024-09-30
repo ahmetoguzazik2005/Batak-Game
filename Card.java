@@ -6,18 +6,23 @@ public class Card {
         setFaceValue(faceValue);
         setSuit(suit);
     }
+
     public void setFaceValue(int faceValue){
         this.faceValue = faceValue;
     }
+
     public void setSuit(String suit){
         this.suit = suit;
     }
+
     public int getFaceValue(){
         return faceValue;
     }
+
     public String getSuit(){    
         return suit;
     }   
+    
     public String toString(){
         if(getFaceValue() == 14){
             return getSuit() + "-Ace";

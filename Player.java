@@ -5,25 +5,30 @@ public class Player {
     private String name;// players name  
     private ArrayList<Card> myCards;// players's card
     private ArrayList<Card> myPlayableCards;
-
+    private static boolean pastSpecial = false;//same for everyone so it must be static
+    
     public Player(String name, ArrayList<Card> myCards){
         setName(name);
         setPlayerCards(myCards);
     }
+
     public void setName(String name){
         this.name = name;
         setPlayerCards(myCards);
     }
+
     public void setPlayerCards(ArrayList<Card> myCards){
         this.myCards = myCards;
     }
-    
+
     public String getName(){
         return name;
     }
+
     public ArrayList<Card> getPlayerCards(){
         return myCards;
     }
+
     /**
      * allow user to play its card
      * @return the card which is played
@@ -39,6 +44,7 @@ public class Player {
         myCards.remove(cardPlayed);
         return cardPlayed; 
     }
+
     /**
      * it will show user to which cards can be play
      */
@@ -46,6 +52,14 @@ public class Player {
         int playableCardsNum = 0;
         myPlayableCards = new ArrayList<>();
         if(playedCards.isEmpty()){
+            if(!pastSpecial){
+                for(int i = 0; i < myCards.size(); i++){
+                    if(myCards.get(i).getSuit() != specialCard){
+                        myPlayableCards.add(myCards.get(i));
+                    }
+                }
+                return myPlayableCards;
+            }
             myPlayableCards = new ArrayList<>(myCards);
             return myPlayableCards;
         }else{
@@ -53,22 +67,22 @@ public class Player {
             String suit = playedCards.getFirst().getSuit();
             int value = playedCards.getFirst().getFaceValue();//initial num
 
-            
-                // check if there any special, you can play any number in the suit form 
-                boolean isThereSpecial = false;//prevents mistakes in only specialCard turns
-                if(suit != specialCard){
-                    for(int i = 1; i < playedCards.size(); i++){
-                        if(playedCards.get(i).getSuit() == specialCard){
-                            isThereSpecial = true;
-                        }
-                    }
-                }
+            // check if there any special, you can play any number in the suit form 
+            boolean isThereSpecial = false;//prevents mistakes in only specialCard turns
+            if(suit != specialCard){
                 for(int i = 1; i < playedCards.size(); i++){
-                    if(!isThereSpecial && suit == playedCards.get(i).getSuit() && playedCards.get(i).getFaceValue() > value){
-                        value = playedCards.get(i).getFaceValue();
+                    if(playedCards.get(i).getSuit() == specialCard){
+                        isThereSpecial = true;
                     }
                 }
-            
+            }
+
+            for(int i = 1; i < playedCards.size(); i++){
+                if(!isThereSpecial && suit == playedCards.get(i).getSuit() && playedCards.get(i).getFaceValue() > value){
+                    value = playedCards.get(i).getFaceValue();
+                }
+            }
+        
             //is there any playable same suit with the higher number
             for(int i = 0; i < myCards.size(); i++){
                 if(myCards.get(i).getSuit() == suit && myCards.get(i).getFaceValue() > value){
@@ -76,6 +90,7 @@ public class Player {
                     playableCardsNum++;
                 }
             }
+
             // if not look for the less num in the same card suit
             if(playableCardsNum == 0){
                 for(int i = 0; i < myCards.size(); i++){
@@ -85,37 +100,44 @@ public class Player {
                     }
                 }
             }
+
             if(playableCardsNum == 0){
                 value = 0;
                 //takes the most pointed specialCard
                 for(int j = 0; j < playedCards.size(); j++){
                     if((playedCards.get(j).getSuit() == specialCard) && playedCards.get(j).getFaceValue() > value){
-                        value = playedCards.get(j).getFaceValue() ;
+                        value = playedCards.get(j).getFaceValue();
                     }
                 }
                 for(int i = 0; i < myCards.size(); i++){
                     if(myCards.get(i).getSuit() == specialCard && myCards.get(i).getFaceValue() > value){
                         myPlayableCards.add(myCards.get(i));
                         playableCardsNum++;
+                        pastSpecial = true;
                     }
                 }
             }
+
             if(playableCardsNum == 0){
                 return myCards;
             }
             return myPlayableCards;
         }   
     }
+    
     public void show(ArrayList<Card> toPlay, ArrayList<Card> played){
         System.out.println("----------------------------------------------");
         System.out.println("Cards played before: ");
+
         for(int i = 0; i < played.size(); i++){
             System.out.print((i + 1) + ") " + played.get(i).toString() + " ");
         }
        
+        System.out.println();
         for(int i = 0; i < toPlay.size(); i++){
             System.out.print((i + 1) + ") " + toPlay.get(i).toString() + " ");
         }
+
         System.out.println();
         System.out.println("----------------------------------------------");
     }

@@ -36,6 +36,5 @@ public class mainn {
         /*for ( int i = 0; i < c1.getPlayerCard1().size(); i++ ){
             System.out.println(c1.getPlayerCard1().get(i));
         }*/
-
     }
 }
