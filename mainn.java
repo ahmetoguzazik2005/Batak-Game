@@ -9,6 +9,13 @@ public class mainn {
         Player p3 = new Player("Zeynep", c1.getPlayerCard3());
         Player p4 = new Player("Sila", c1.getPlayerCard4());
         CleverGame cG1 = new CleverGame(p1, p2, p3, p4);
+        cG1.bet();
+        System.out.println(cG1.getLastBetter());
+        System.out.println(cG1.getBiggestBet());
+
+      
+
+    
     
         ArrayList<Card> game; 
 
@@ -27,9 +34,6 @@ public class mainn {
             p4.playCard(game, "Spade");
             System.out.println();
         }
-        // cG1.bet();
-        // cG1.getLastBetter();
-        // cG1.getBiggestBet();
 
         
         //System.out.println(c1.getPlayerCard1());

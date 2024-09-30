@@ -113,4 +113,11 @@ public class Player {
             System.out.print((i + 1) + ") " + toPlay.get(i).toString() + " ");
         }
     }
+
+    public String toString(){
+        return getName();
+    }
+    
+    
+
 }
