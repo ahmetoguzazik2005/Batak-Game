@@ -56,7 +56,7 @@ public class Player {
         if(playedCards.isEmpty()){
             if(!pastSpecial){
                 for(int i = 0; i < myCards.size(); i++){
-                    if(myCards.get(i).getSuit() != specialCard){
+                    if(!myCards.get(i).getSuit().equals(specialCard)){
                         myPlayableCards.add(myCards.get(i));
                     }
                 }
@@ -71,7 +71,7 @@ public class Player {
 
             // check if there any special, you can play any number in the suit form 
             boolean isThereSpecial = false;//prevents mistakes in only specialCard turns
-            if(suit != specialCard){
+            if(!suit.equals(specialCard)){
                 for(int i = 1; i < playedCards.size(); i++){
                     if(playedCards.get(i).getSuit() == specialCard){
                         isThereSpecial = true;
@@ -80,14 +80,14 @@ public class Player {
             }
 
             for(int i = 1; i < playedCards.size(); i++){
-                if(!isThereSpecial && suit == playedCards.get(i).getSuit() && playedCards.get(i).getFaceValue() > value){
+                if(!isThereSpecial && suit.equals(playedCards.get(i).getSuit()) && playedCards.get(i).getFaceValue() > value){
                     value = playedCards.get(i).getFaceValue();
                 }
             }
         
             //is there any playable same suit with the higher number
             for(int i = 0; i < myCards.size(); i++){
-                if(myCards.get(i).getSuit() == suit && myCards.get(i).getFaceValue() > value){
+                if(myCards.get(i).getSuit().equals(suit) && myCards.get(i).getFaceValue() > value){
                     myPlayableCards.add(myCards.get(i));
                     playableCardsNum++;
                 }
@@ -96,7 +96,7 @@ public class Player {
             // if not look for the less num in the same card suit
             if(playableCardsNum == 0){
                 for(int i = 0; i < myCards.size(); i++){
-                    if(myCards.get(i).getSuit() == suit){
+                    if(myCards.get(i).getSuit().equals(suit)){
                         myPlayableCards.add(myCards.get(i));
                         playableCardsNum++;
                     }
@@ -107,12 +107,12 @@ public class Player {
                 value = 0;
                 //takes the most pointed specialCard
                 for(int j = 0; j < playedCards.size(); j++){
-                    if((playedCards.get(j).getSuit() == specialCard) && playedCards.get(j).getFaceValue() > value){
+                    if((playedCards.get(j).getSuit().equals(specialCard)) && playedCards.get(j).getFaceValue() > value){
                         value = playedCards.get(j).getFaceValue();
                     }
                 }
                 for(int i = 0; i < myCards.size(); i++){
-                    if(myCards.get(i).getSuit() == specialCard && myCards.get(i).getFaceValue() > value){
+                    if(myCards.get(i).getSuit().equals(specialCard) && myCards.get(i).getFaceValue() > value){
                         myPlayableCards.add(myCards.get(i));
                         playableCardsNum++;
                         pastSpecial = true;

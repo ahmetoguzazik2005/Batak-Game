@@ -145,7 +145,7 @@ public class CleverGame{
         System.out.println(player4.getPlayerCards());
         System.out.println("------------------------------------------------------------------------------------------------------------------------------");
         bet();
-        System.out.println(lastBetter.getName() + "What type should be the special card type?");
+        System.out.println(lastBetter.getName() + " What type should be the special card type?");
         System.out.print("Choice: ");
         specialCard = input.nextLine().toLowerCase();
         boolean cont = true;
@@ -274,7 +274,10 @@ public class CleverGame{
         }
     }
 
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     public boolean betQuestions(Player who, int playerNo){
         System.out.println("------------------------------------------------------------------");
         System.out.println("Minimal bet is: " + (minimalBet) );
@@ -283,7 +286,7 @@ public class CleverGame{
 
         choice = input.nextLine();
         choice = choice.toLowerCase();
-        
+
         int bet;
         while(true){
             if(choice.equals("yes")){

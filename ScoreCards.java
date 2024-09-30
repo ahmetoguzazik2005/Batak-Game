@@ -49,10 +49,14 @@ public class ScoreCards {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------");
     }
     public int getScore(int scoreNo){
+<<<<<<< Updated upstream
         int score = ScoreCards[scoreNo - 1];
+=======
+        int score = ScoreCards[scoreNo - 1];//???
+>>>>>>> Stashed changes
         return score;
     }
-    
+
     public void update( int scoreNo ){
         ScoreCards[scoreNo - 1] = getScore(scoreNo) + 1;
     }    

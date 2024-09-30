@@ -22,7 +22,7 @@ public class Card {
     public String getSuit(){    
         return suit;
     }   
-    
+
     public String toString(){
         if(getFaceValue() == 14){
             return getSuit() + "-Ace";
