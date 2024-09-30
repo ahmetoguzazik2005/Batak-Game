@@ -25,15 +25,13 @@ public class CleverGame{
     // but from round 1 turns will be determinde by winner
     private int playTurn = 1;
 
-    private ScoreCards scorecard;
     
     CleverGame(Player player1, Player player2, Player player3, Player player4){
         setPlayer1(player1);
         setPlayer2(player2);
         setPlayer3(player3);
         setPlayer4(player4);
-        s1 = new ScoreCards();
-        scorecard = new ScoreCards();
+        s1 = new ScoreCards(player1,player2,player3,player4);
         input = new Scanner (System.in);
     }
     // public boolean playTurn(Player player, Card card){
@@ -163,12 +161,14 @@ public class CleverGame{
 
 
         for ( int spin = 1; spin <= 13; spin++ ){
+            s1.getScores();
             System.out.println("Round: " + spin);
             orderMaker(lastNo);
             lastNo = getWinner(playedCards,whoPlayed);
             playedCards.removeAll(playedCards);// to reset after every turn
             whoPlayed.removeAll(whoPlayed);// to reset after every turn
         }
+        s1.getGameWinner();
 
     }
 
@@ -274,7 +274,7 @@ public class CleverGame{
         }
     }
 
-    }
+    
     public boolean betQuestions(Player who, int playerNo){
         System.out.println("------------------------------------------------------------------");
         System.out.println("Minimal bet is: " + (minimalBet) );
@@ -363,7 +363,4 @@ public class CleverGame{
         this.player4 = player4;
     }
     
-    public ScoreCards getScorecard() {
-        return scorecard;
-    }
 }

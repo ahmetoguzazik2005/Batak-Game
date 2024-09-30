@@ -6,6 +6,7 @@ public class Player {
     private ArrayList<Card> myCards;// players's card
     private ArrayList<Card> myPlayableCards;
     private static boolean first = true;
+    private static boolean pastSpecial = false;
 
     public Player(String name, ArrayList<Card> myCards){
         setName(name);
