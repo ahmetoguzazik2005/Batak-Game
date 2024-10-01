@@ -25,7 +25,6 @@ public class ScoreCards {
                 biggestScore = ScoreCards[i];
                 whoWhin = i + 1;
             }
-
         }
         return whoWhin;
     }

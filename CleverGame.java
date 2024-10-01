@@ -145,6 +145,18 @@ public class CleverGame{
         System.out.println(player4.getPlayerCards());
         System.out.println("------------------------------------------------------------------------------------------------------------------------------");
         bet();
+        // if no one gave a bet player1 must take the bet(check is it four)
+        if(lastBetter == null){
+            if(isSpadeTwo(player1.getPlayerCards())){
+                lastBetter = player1;    
+            }else if(isSpadeTwo(player2.getPlayerCards())){
+                lastBetter = player2;
+            }else if(isSpadeTwo(player3.getPlayerCards())){
+                lastBetter = player3;
+            }else{
+                lastBetter = player4;
+            }
+        }
         System.out.println(lastBetter.getName() + " What type should be the special card type?");
         System.out.print("Choice: ");
         specialCard = input.nextLine().toLowerCase();
@@ -155,7 +167,6 @@ public class CleverGame{
             }else{
                 System.out.print("Choice: ");
                 specialCard = input.nextLine().toLowerCase();
-            
             }
         }
 
@@ -194,13 +205,17 @@ public class CleverGame{
         biggestBet = 5;
         int finishN = 0;
         while (cont){      
+            // turned else of to if if there is multiple false unnecessary code run has been prevented
             if(playerB1 == false){
                 finishN++;
-            }else if(playerB2 == false){
+            }
+            if(playerB2 == false){
                 finishN++;
-            }else if(playerB3 == false){
+            }
+            if(playerB3 == false){
                 finishN++;
-            }else if(playerB4 == false){
+            }
+            if(playerB4 == false){
                 finishN++;
             }
             
@@ -284,7 +299,7 @@ public class CleverGame{
         choice = input.nextLine();
         choice = choice.toLowerCase();
 
-        int bet;
+        int bet = 4;// does it work correctly(?)
         while(true){
             if(choice.equals("yes")){
                 System.out.println("Your bet: ");
