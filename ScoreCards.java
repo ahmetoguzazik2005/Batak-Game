@@ -33,13 +33,13 @@ public class ScoreCards {
         System.out.println("Score board");
         for ( int i = 0; i < ScoreCards.length; i++){
             if ( i == 0 ){
-                System.out.print(player1.getName()+"'s Score: ");
+                System.out.print(player1.getName() + "'s Score: ");
             }else if( i == 1){
-                System.out.print(player2.getName()+"'s Score: ");
+                System.out.print(player2.getName() + "'s Score: ");
             }else if(i == 2){
-                System.out.print(player3.getName()+"'s Score: ");
+                System.out.print(player3.getName() + "'s Score: ");
             }else if(i == 3){
-                System.out.print(player4.getName()+"'s Score: ");
+                System.out.print(player4.getName() + "'s Score: ");
             }
             System.out.print(ScoreCards[i]);
             System.out.println();

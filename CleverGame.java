@@ -9,12 +9,14 @@ public class CleverGame{
     private boolean playerB2 = true;
     private boolean playerB3 = true;
     private boolean playerB4 = true;
+    private boolean noOneAsked = true;// first three no should not prevent last one to make a bet
     private Player lastBetter;
     private int lastNo;
     private int minimalBet = 5;
     private int biggestBet;
     private String specialCard;
     private boolean firsTime = true;
+    private int finishN;// to access it from another method
     Scanner input;
     String choice;
     int spadeTwoNo;
@@ -22,7 +24,7 @@ public class CleverGame{
     private ArrayList<Card> playedCards = new ArrayList<>();// played cards at the table
     private ArrayList<Integer> whoPlayed;//who played cards at the table
     // the reason why i chose is in round one lists are created according to cards
-    // but from round 1 turns will be determinde by winner
+    // but from round 1 turns will be determined by winner
     private int playTurn = 1;
 
     
@@ -31,7 +33,7 @@ public class CleverGame{
         setPlayer2(player2);
         setPlayer3(player3);
         setPlayer4(player4);
-        s1 = new ScoreCards(player1,player2,player3,player4);
+        s1 = new ScoreCards(player1, player2, player3, player4);
         input = new Scanner (System.in);
     }
     // public boolean playTurn(Player player, Card card){
@@ -174,6 +176,7 @@ public class CleverGame{
         for ( int spin = 1; spin <= 13; spin++ ){
             s1.getScores();
             System.out.println("Round: " + spin);
+            System.out.println();
             orderMaker(lastNo);
             lastNo = getWinner(playedCards,whoPlayed);
             playedCards.removeAll(playedCards);// to reset after every turn
@@ -183,7 +186,6 @@ public class CleverGame{
 
     }
 
-  
     /**
      * search for spade two
      * @param list players deck
@@ -199,87 +201,91 @@ public class CleverGame{
         }
         return false;
     }
+
     public void bet(){
         boolean cont = true;
         minimalBet = 5;
         biggestBet = 5;
-        int finishN = 0;
+        finishN = 0;
         while (cont){      
             // turned else of to if if there is multiple false unnecessary code run has been prevented
-            if(playerB1 == false){
-                finishN++;
-            }
-            if(playerB2 == false){
-                finishN++;
-            }
-            if(playerB3 == false){
-                finishN++;
-            }
-            if(playerB4 == false){
-                finishN++;
-            }
+            // if(playerB1 == false){
+            //     finishN++;
+            // }
+            // if(playerB2 == false){
+            //     finishN++;
+            // }
+            // if(playerB3 == false){
+            //     finishN++;
+            // }
+            // if(playerB4 == false){
+            //     finishN++;
+            // }
             
             if ( finishN < 3 ){
                 if(isSpadeTwo(player1.getPlayerCards())){
                     //lastBetter = player1;
-                    if ( playerB1){
+                    if (finishN < 3  && playerB1){
                         playerB1 = betQuestions(player1,1);
                     }
-                    if ( playerB2){
+                    if (finishN < 3  && playerB2){
                         playerB2 = betQuestions(player2,2);
                     }
-                    if ( playerB3){
+                    if (finishN < 3  && playerB3){
                         playerB3 = betQuestions(player3,3);
                     }
-                    if ( playerB4){
+                    if (noOneAsked || (finishN < 3  && playerB4)){
                         playerB4 = betQuestions(player4,4);
+                        noOneAsked = false;
                     }
     
                 }else if(isSpadeTwo(player2.getPlayerCards())){
                     //lastBetter = player2;
-                    if ( playerB2){
+                    if (finishN < 3  && playerB2){
                         playerB2 = betQuestions(player2,2);
                     }
-                    if ( playerB3){
+                    if (finishN < 3  && playerB3){
                         playerB3 = betQuestions(player3,3);
                     }
-                    if ( playerB4){
+                    if (finishN < 3  && playerB4){
                         playerB4 = betQuestions(player4,4);
                     }
-                    if ( playerB1){
+                    if (noOneAsked || (finishN < 3  && playerB1)){
                         playerB1 = betQuestions(player1,1);
+                        noOneAsked = false;
                     }
     
                 }else if(isSpadeTwo(player3.getPlayerCards())){
                     //lastBetter = player3;
-                    if ( playerB3){
+                    if (finishN < 3  && playerB3){
                         playerB3 = betQuestions(player3,3);
                     }
-                    if ( playerB4){
+                    if (finishN < 3  && playerB4){
                         playerB4 = betQuestions(player4,4);
                     }
-                    if ( playerB1){
+                    if (finishN < 3  && playerB1){
                         playerB1 = betQuestions(player1,1);
                     }
-                    if ( playerB2){
+                    if (noOneAsked || (finishN < 3  && playerB2)){
                         playerB2 = betQuestions(player2,2);
+                        noOneAsked = false;
                     }
                    
                 }else if(isSpadeTwo(player4.getPlayerCards())) {
                     //lastBetter = player4;
-                    if ( playerB4){
+                    if (finishN < 3  && playerB4){
                         playerB4 = betQuestions(player4,4);
                     }
-                    if ( playerB1){
+                    if (finishN < 3  && playerB1){
                         playerB1 = betQuestions(player1,1);
                     }
-                    if ( playerB2){
+                    if (finishN < 3  && playerB2){
                         playerB2 = betQuestions(player2,2);
                     }
-                    if ( playerB3){
+                    if (noOneAsked || (finishN < 3  && playerB3)){
                         playerB3 = betQuestions(player3,3);
+                        noOneAsked = false;
                     }
-    
                 }
             }else{
                 cont = false;
@@ -289,7 +295,6 @@ public class CleverGame{
         }
     }
 
-    
     public boolean betQuestions(Player who, int playerNo){
         System.out.println("------------------------------------------------------------------");
         System.out.println("Minimal bet is: " + (minimalBet) );
@@ -312,6 +317,12 @@ public class CleverGame{
                         lastBetter = who;
                         lastNo = playerNo;
 
+                        // it ensures that there is at least 3 no in a row
+                        finishN = 0;    
+                        playerB1 = true;
+                        playerB2 = true;
+                        playerB3 = true;
+                        playerB4 = true;
     
                         return true;
                     }else{
@@ -328,9 +339,9 @@ public class CleverGame{
                         }
                     }
                 }
-
-
+                
             }else if(choice.equals("no")){
+                finishN++;
                 return false;
             }else{System.out.println("Invalid input");
                 System.out.println("yes/no");
