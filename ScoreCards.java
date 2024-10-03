@@ -18,6 +18,7 @@ public class ScoreCards {
             this.ScoreCards[i] = 0;
         }
     }
+<<<<<<< Updated upstream
     public int getGameWinner(Player better, int biggestBet){
         for ( int i = 0; i < ScoreCards.length; i++ ){
             
@@ -42,6 +43,11 @@ public class ScoreCards {
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------");
     }
+=======
+    //public int getGameWinner(){
+
+    //}
+>>>>>>> Stashed changes
     public int getScore(int scoreNo){
         int score = ScoreCards[scoreNo - 1];
         return score;
