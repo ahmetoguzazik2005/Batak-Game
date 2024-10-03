@@ -6,10 +6,7 @@ public class Player {
     private ArrayList<Card> myCards;// players's card
     private ArrayList<Card> myPlayableCards;
     private static boolean first = true;
-<<<<<<< Updated upstream
     private static boolean pastSpecial = false;
-=======
->>>>>>> Stashed changes
 
     public Player(String name, ArrayList<Card> myCards){
         setName(name);
