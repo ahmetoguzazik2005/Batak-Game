@@ -60,7 +60,7 @@ public class CleverGame{
         for ( int i = 0; i < playedCards.size(); i++){
             if ( playedCards.get(i).getSuit().equals(specialCard)){
                 specialCardExist = true;
-                if (playedCards.get(i).getFaceValue() > biggestValue  ){
+                if ( playedCards.get(i).getFaceValue() > biggestValue ){
                     biggestValue = playedCards.get(i).getFaceValue();
                     lastNo = whoPlayed.get(i);
                 }
@@ -72,6 +72,7 @@ public class CleverGame{
             lastNo = whoPlayed.get(0);
             for ( int i = 1; i < playedCards.size(); i++ ){
                 if ( playedCards.get(i).getSuit().equals(suit) && playedCards.get(i).getFaceValue() > biggestValue){
+                    biggestValue = playedCards.get(i).getFaceValue();
                     lastNo = whoPlayed.get(i);
                 }
             }
@@ -132,14 +133,14 @@ public class CleverGame{
             
         }else{
             whoPlayed = new ArrayList<Integer>(Arrays.asList(4,1,2,3));
-            System.out.println("Hidayet's turn");
-            player2.playCard(playedCards, specialCard);
-            System.out.println("Zeynep's turn");
-            player3.playCard(playedCards, specialCard);
             System.out.println("Sila's turn");
             player4.playCard(playedCards, specialCard);
             System.out.println("Oğuz's turn");
             player1.playCard(playedCards, specialCard);
+            System.out.println("Hidayet's turn");
+            player2.playCard(playedCards, specialCard);
+            System.out.println("Zeynep's turn");
+            player3.playCard(playedCards, specialCard);
             System.out.println("------------------------------------------------------------------------------------------------------------------------------");
             System.out.println();
 
