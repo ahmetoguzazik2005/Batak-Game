@@ -18,13 +18,9 @@ public class ScoreCards {
             this.ScoreCards[i] = 0;
         }
     }
-    public int getGameWinner(){
-        int biggestScore = 0;
+    public int getGameWinner(Player better, int biggestBet){
         for ( int i = 0; i < ScoreCards.length; i++ ){
-            if ( biggestScore < ScoreCards[i] ){
-                biggestScore = ScoreCards[i];
-                whoWhin = i + 1;
-            }
+            
         }
         return whoWhin;
     }
