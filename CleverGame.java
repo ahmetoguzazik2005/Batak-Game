@@ -15,8 +15,7 @@ public class CleverGame{
     private int minimalBet = 5;
     private int biggestBet;
     private String specialCard;
-<<<<<<< HEAD
-=======
+
     private boolean firsTime = true;
     private int finishN;// to access it from another method
     Scanner input;
