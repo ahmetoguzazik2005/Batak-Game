@@ -80,4 +80,13 @@ public class ScoreCards {
     public void update( int scoreNo ){
         ScoreCards[scoreNo - 1] = getScore(scoreNo) + 1;
     }    
+    public void betSucceed(int better){
+        for ( int i = 0; i < ScoreCards.length; i++ ){
+            if (!(better - 1 == i) ){
+                ScoreCards[i] = 0;
+            }
+            
+        }
+        getScores();
+    }
 }
