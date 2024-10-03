@@ -12,13 +12,11 @@ public class ScoreCards {
         this.player2 = player2;
         this.player3 = player3;
         this.player4 = player4;
-
         ScoreCards = new int[4];
         for ( int i = 0; i < ScoreCards.length; i++ ){
             this.ScoreCards[i] = 0;
         }
     }
-<<<<<<< Updated upstream
     public int getGameWinner(Player better, int biggestBet){
         for ( int i = 0; i < ScoreCards.length; i++ ){
             if(player1 == better){
@@ -67,11 +65,6 @@ public class ScoreCards {
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------");
     }
-=======
-    //public int getGameWinner(){
-
-    //}
->>>>>>> Stashed changes
     public int getScore(int scoreNo){
         int score = ScoreCards[scoreNo - 1];
         return score;
