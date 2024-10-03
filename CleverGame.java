@@ -193,7 +193,7 @@ public class CleverGame{
             playedCards.removeAll(playedCards);// to reset after every turn
             whoPlayed.removeAll(whoPlayed);// to reset after every turn
         }
-        s1.getGameWinner();
+        s1.getGameWinner(lastBetter, biggestBet);
 
     }
 
