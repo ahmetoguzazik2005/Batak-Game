@@ -15,7 +15,6 @@ public class CleverGame{
     private int minimalBet = 5;
     private int biggestBet;
     private String specialCard;
-    private boolean firsTime = true;
     private int finishN;// to access it from another method
     Scanner input;
     String choice;
@@ -25,9 +24,7 @@ public class CleverGame{
     private ArrayList<Integer> whoPlayed;//who played cards at the table
     // the reason why i chose is in round one lists are created according to cards
     // but from round 1 turns will be determined by winner
-    private int playTurn = 1;
 
-    
     CleverGame(Player player1, Player player2, Player player3, Player player4){
         setPlayer1(player1);
         setPlayer2(player2);
@@ -52,7 +49,6 @@ public class CleverGame{
 
     // }
 
-    
     public int getWinner(ArrayList<Card> playedCards, ArrayList<Integer> whoPlayed){
         boolean specialCardExist = false;
         int biggestValue = 0;

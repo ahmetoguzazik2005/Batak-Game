@@ -20,7 +20,31 @@ public class ScoreCards {
     }
     public int getGameWinner(Player better, int biggestBet){
         for ( int i = 0; i < ScoreCards.length; i++ ){
-            
+            if(player1 == better){
+                if(biggestBet <= ScoreCards[0]){
+                    System.out.println(player1.getName() + " won the game");
+                }else{
+                    System.out.println(player1.getName() + " lost the game");
+                }
+            }else if(player2 == better){
+                if(biggestBet <= ScoreCards[1]){
+                    System.out.println(player2.getName() + " won the game");
+                }else{
+                    System.out.println(player2.getName() + " lost the game");
+                }
+            }else if(player3 == better){
+                if(biggestBet <= ScoreCards[2]){
+                    System.out.println(player3.getName() + " won the game");
+                }else{
+                    System.out.println(player3.getName() + " lost the game");
+                }
+            }else{
+                if(biggestBet <= ScoreCards[3]){
+                    System.out.println(player4.getName() + " won the game");
+                }else{
+                    System.out.println(player4.getName() + " lost the game");
+                }
+            }
         }
         return whoWhin;
     }
