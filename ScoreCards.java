@@ -12,7 +12,6 @@ public class ScoreCards {
         this.player2 = player2;
         this.player3 = player3;
         this.player4 = player4;
-
         ScoreCards = new int[4];
         for ( int i = 0; i < ScoreCards.length; i++ ){
             this.ScoreCards[i] = 0;
@@ -50,4 +49,13 @@ public class ScoreCards {
     public void update( int scoreNo ){
         ScoreCards[scoreNo - 1] = getScore(scoreNo) + 1;
     }    
+    public void betSucceed(int better){
+        for ( int i = 0; i < ScoreCards.length; i++ ){
+            if (!(better - 1 == i) ){
+                ScoreCards[i] = 0;
+            }
+            
+        }
+        getScores();
+    }
 }
