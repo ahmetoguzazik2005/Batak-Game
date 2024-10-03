@@ -76,6 +76,16 @@ public class CleverGame{
                 }
             }
         }
+        if ( lastNo == 1 ){
+            System.out.println("Oğuz win the round");
+        }else if ( lastNo == 2 ){
+            System.out.println("Hidayet win the round");
+        }else if( lastNo == 3 ){
+            System.out.println("Zeynep win the round");
+        }else if ( lastNo == 4 ){
+            System.out.println("Sila win the round");
+        }
+        System.out.println();
         s1.update(lastNo);
         return lastNo;
     }
@@ -205,7 +215,7 @@ public class CleverGame{
     public void bet(){
         boolean cont = true;
         minimalBet = 5;
-        biggestBet = 5;
+        biggestBet = 4;
         finishN = 0;
         while (cont){      
             // turned else of to if if there is multiple false unnecessary code run has been prevented
@@ -317,12 +327,12 @@ public class CleverGame{
                         lastBetter = who;
                         lastNo = playerNo;
 
-                        // it ensures that there is at least 3 no in a row
+                        /*  it ensures that there is at least 3 no in a row
                         finishN = 0;    
                         playerB1 = true;
                         playerB2 = true;
                         playerB3 = true;
-                        playerB4 = true;
+                        playerB4 = true;*/
     
                         return true;
                     }else{
